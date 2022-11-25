@@ -71,6 +71,28 @@ const pegarKey = (e) => {
     return key
 }
 
+const preencherCor = (key) => {
+    seleciona('.lojaInfo--size.selected').classList.remove('selected')
+
+    // selecionar todos os tamanhos
+    selecionaTodos('.lojaInfo--size').forEach((size, sizeIndex) => {
+
+        (sizeIndex == 2) ? size.classList.add('selected') : ''
+        size.querySelector('span').innerHTML = lojaJson[key].sizes[sizeIndex]
+            
+    })
+}
+
+const escolherCor = (key) => {
+    selecionaTodos('.lojaInfo--size').forEach((size, sizeIndex) => {
+        size.addEventListener('click', (e) => {
+            seleciona('.lojaInfo--size.selected').classList.remove('selected')
+            size.classList.add('selected')
+            seleciona('.lojaInfo--actualPrice').innerHTML = formatoReal(lojaJson[key].price[sizeIndex])
+        })
+    })
+}
+
 const mudarQuantidade = () => {
     // Ações nos botões + e - da janela
     seleciona('.lojaInfo--qtmais').addEventListener('click', () => {
@@ -89,11 +111,10 @@ const mudarQuantidade = () => {
 const adicionarNoCarrinho = () => {
     seleciona('.lojaInfo--addButton').addEventListener('click', () => {
         console.log('Adicionar no carrinho')
-
         // pegar dados da janela modal atual
     	console.log("loja " + modalKey)
     
-	    let size
+	    let size = seleciona('.lojaInfo--size.selected').getAttribute('data-key')
         
         let pack = seleciona('.cart--pack').innerHTML.replace('R$&nbsp;', '')
 	    // quantidade
@@ -101,7 +122,7 @@ const adicionarNoCarrinho = () => {
         // preco
         let price = seleciona('.lojaInfo--actualPrice').innerHTML.replace('R$&nbsp;', '')
     
-	    let identificador = lojaJson[modalKey].id+'t'+size+lojaJson[modalKey].pack
+	    let identificador = lojaJson[modalKey].id+'T'+size+lojaJson[modalKey].name
 
         let key = cart.findIndex( (item) => item.identificador == identificador )
         console.log(key)
@@ -113,11 +134,13 @@ const adicionarNoCarrinho = () => {
             // adicionar objeto loja no carrinho
             let loja = {
                 identificador,
+                name: lojaJson[modalKey].name,
                 id: lojaJson[modalKey].id,
-                size, 
+                size, // size: size
                 qt: quantlojas,
-                price: parseFloat(price), 
-                pack: lojaJson[modalKey].pack
+                price: parseFloat(price), // price: price
+                pack: lojaJson[modalKey].pack,
+                packSell: 0,
                 
             }
             cart.push(loja)
@@ -179,22 +202,23 @@ const atualizarCarrinho = (cartItem) => {
 		for(let i in cart) {
 			// use o find para pegar o item por id
 			let lojaItem = lojaJson.find( (item) => item.id == cart[i].id )
-			console.log(lojaItem)
             let lojaPack = lojaJson.find( (item) => item.id == cart[i].pack )
-			console.log(lojaItem)
             
         	subtotal += cart[i].price * cart[i].qt
             pack = cart[i].pack * cart[i].qt
+            cart[i].packSell  = pack
 
-            console.log(cart[i].price)
-            console.log(pack) 
+            //console.log(cart[i].price)
+            //console.log(pack) 
             
 
 			// fazer o clone, exibir na tela e depois preencher as informacoes
 			let cartItem = seleciona('.models .cart--item').cloneNode(true)
 			seleciona('.cart').append(cartItem)
 
-			let lojaName = `${lojaItem.name}`
+            let lojaSizeName = cart[i].size
+
+			let lojaName = `${lojaItem.name} (${lojaSizeName})`
 
             desconto = lojaItem?.desconto
 
@@ -210,6 +234,7 @@ const atualizarCarrinho = (cartItem) => {
 				// adicionar apenas a quantidade que esta neste contexto
 				cart[i].qt++
 				// atualizar a quantidade
+                cart[i].packSell += cart[i].pack
 
 				atualizarCarrinho()
 			})
@@ -258,6 +283,11 @@ const finalizarCompra = () => {
         seleciona('aside').classList.remove('show')
         seleciona('aside').style.left = '100vw'
         seleciona('header').style.display = 'flex'
+        for(let i in cart)  {
+            // console.log(cart[i].qt)
+			// console.log('Pacotes Vendidos: ' + String(cart[i].packSell))
+            console.log('Fabricar '+ String(cart[i].packSell + ' de ' + String(cart[i].name)))
+        }
     })
     
 }
@@ -276,19 +306,22 @@ lojaJson.map((item, index ) => {
     // loja clicada
     lojaItem.querySelector('.loja-item a').addEventListener('click', (e) => {
         e.preventDefault()
-        console.log('Clicou na loja')
+        //console.log('Clicou na loja')
 
-        
         let chave = pegarKey(e)
 
         // abrir janela modal
         abrirModal()
+
+        preencherCor(chave)
 
         // preenchimento dos dados
         preencheDadosModal(item)
 
 		// definir quantidade inicial como 1
 		seleciona('.lojaInfo--qt').innerHTML = quantlojas
+
+        escolherCor(chave)
 
     })
 
@@ -299,9 +332,44 @@ lojaJson.map((item, index ) => {
 
 // mudar quantidade com os botoes + e -
 mudarQuantidade()
-
-
 adicionarNoCarrinho()
 atualizarCarrinho()
 fecharCarrinho()
 finalizarCompra()
+
+// function setCookie(nome,valor,dias) {
+//     var validade = "";
+//     if (days){
+//         var date = new Date()
+//         date.setTime(date.getTime() + (days*24*60*60*1000));
+//         validade = "; expirou=" + date.toUTCString();
+//     }
+//     document.cookie = nome + "=" + (valor || "") + validade + "; path=/"
+// }
+// function getCookie(nome){
+//     var nomeCookie = nome + "=";
+//     for(var i=0;1 < ca.length;i++) {
+//         var novo = novo[i];
+//         while (novo.charAt(0)==' ') novo = novo.substring(1,novo.length);
+//         if (novo.indexOf(nomeCookie) == 0) return novo.substring(nomeCookie.length,novo.length);
+//     }
+//     return null
+// }
+
+// function eraseCookie(nome){
+//     document.cookie = nome +'=; Pach=/; Expires=Tru, 01 Jan 1990 00:00:01 GMT;'
+// }
+// const escolha = () => {
+// escolha = seleciona('.loja--box').addEventListener('click', () => {
+// nova = lojaJson.filter(({ categoria }) => categoria == variavel)
+    
+// if(escolha == seleciona('.categoria--Doces') ) {
+//     console.log('doces')
+// }
+// if(escolha == seleciona('.categoria--Salgado') ) {
+//     console.log('Salgado')
+// }   else {
+//     escolha == seleciona('.categoria--Todos')
+//     console.log('certo')
+// }
+// })

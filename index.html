@@ -27,6 +27,7 @@
         <!-- loja no carrinho -->
         <div class="cart--item">
             <img src="" />
+            <imgs src="" />
             <div class="cart--item-nome">--</div>
             <div class="cart--item--qtarea">
                 <button class="cart--item-qtmenos">-</button>
@@ -40,9 +41,22 @@
 
     <!-- .menu-openner aparecera no modo mobile -->
     <header>
-        <h1>Loja Naressi</h1>
+        <h1>Naressi store</h1>
+        <div class="loja--box">
+<!--        <section>
+            <form>
+            <label for="selecao"></label>
+            <select id="categoria">
+                <div class="categoria--Todos">1-<option>--</option></div>
+                <div class="categoria--Doces">2-<option>Doces</option></div>
+                <div class="categoria--Salgado">3-<option>Salgados</option></div>
+            </select>
+            </form>
+        </section> -->
+        </div>
         <div class="menu-openner"><span>0</span>🛒</div>
-    </header>
+    </header> 
+
     <!-- /menu-openner -->
 
     <!-- conteudo principal -->
@@ -51,6 +65,7 @@
         <h2>Mercadorias</h2>
 
         <div class="loja-area"></div>
+
     </main>
     <!-- /conteudo principal -->
 
@@ -80,6 +95,15 @@
     </aside>
     <!-- /aside do carrinho -->
 
+<!--<div class="cookies-container">
+    <div class="cookie-content">
+        <p>Coletando cookie</p>
+    <div class="cookie-pref">
+        <input type="checkbox" name="" id="">
+    </div>
+    </div>
+</div> -->
+
     <!-- janela modal .lojaWindowArea -->
     <div class="lojaWindowArea">
         <div class="lojaWindowBody">
@@ -91,8 +115,12 @@
                 <h1>--</h1>
                 <div class="lojaInfo--desc">--</div>
                 <div class="lojaInfo--sizearea">
-                    <div class="lojaInfo--sector">Unidades dentro da caixa
-                        <div class="LojaInfo--sectorPack">--</div>                                      
+                    <div class="lojaInfo--sector">Tamanho dos pacotes dentro das caixas
+                        <div class="lojaInfo--sizes">
+                            <div data-key="P" class="lojaInfo--size"><span></span></div>
+                            <div data-key="M" class="lojaInfo--size"><span></span></div>
+                            <div data-key="G" class="lojaInfo--size selected"><span>--</span></div>
+                        </div>                                      
                 </div>
                 <div class="lojaInfo--pricearea">
                     <div class="lojaInfo--sector">Preço</div>

@@ -1,13 +1,17 @@
-# Loja Virtual
-Uma loja virtual do ramo alimentício
+# 💻 Sobre o projeto
 
-# Sobre o projeto
-É um programa em JavaScript, Css e HTML. Front-end com a finalidade de simular um site de compras.
+Projeto desenvolvido em **HTML, CSS e JavaScript**. Fiz esse website para aprimorar meus conhecimentos em front-end, e utilizar boas práticas em JavasScript.
 
-# Como funciona o Projeto
-Simulando uma loja virtual o cliente escolhe sua mercadoria, tendo a capacidade de escolher tanto a gramagem como a variedade dos produtos, assim, conseguindo visualiza-los em seu carrinho e ao fecho a compra, dentro do consola(f12) Será exibido ao usuário quantas unidades será necessaria para sua fabricação ja que a compra é feitas por caixa e não por unidade.
+### Como funciona o Projeto
 
-# Ambiente.
-Visual Studio Code
+Simulando uma loja virtual, é possivel escolher o produto e colocar no carrinho, podendo ter as opções de escolher tanto a gramagem como a variedade do item escolhido. Assim, conseguindo visualizá-los em seu carrinho e ao finalizar a compra, dentro do **console** no navegador será exibido quantas unidades será necessária para sua fabricação (*lembrando que as compras são feitas por caixa e não por unidade*).
 
-#Comentarios sobre o projeto. Esse projeto esta em andamento, estou trabalhando nele para inclementar: Cookie, a personalização dos produtos fazendo com que o usuário consiga fazer a personalização do produto e por fim a diversidade de lingua, português,inglês e espanhol.
+# 📸 Galeria:
+
+# 💻 Recursos Utilizados:
+
+* Foi utilizado o [Visual Code](https://code.visualstudio.com/) para fazer a criação do projeto, porém pode usar outro editor de sua preferência.
+
+# :fire: Executando o Projeto Localmente:
+
+* Para executar o projeto, basta apenas abrir o arquivo **index.html**

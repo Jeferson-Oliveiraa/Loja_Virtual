@@ -320,6 +320,21 @@ h1, h2 {
     margin-bottom:30px;
 }
 
+.lojaInfo-nomePersonalizacao{
+    margin-top: 15px;
+}
+
+.lojaInfo-nomePersonalizacao label input{
+    display: block;
+}
+
+.lojaInfo-nomePersonalizacao input{
+    margin-top: 5px;
+    border-radius:10px;
+    font-size: 13px;
+    padding:10px 20px;
+}
+
 .cart {
     margin-bottom:20px;
 }
@@ -399,6 +414,7 @@ h1, h2 {
 .cart--finalizar:hover {
     background-color:#35af4a;
 }
+
 
 @media (max-width:1000px) {
     .loja-area {
@@ -495,6 +511,10 @@ h1, h2 {
     .lojaInfo--cancelMobileButton {
         display:block;
     }
+
+
+
+
 
 }
 

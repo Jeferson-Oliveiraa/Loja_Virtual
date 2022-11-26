@@ -121,6 +121,8 @@ const adicionarNoCarrinho = () => {
     	console.log("Quant. " + quantlojas)
         // preco
         let price = seleciona('.lojaInfo--actualPrice').innerHTML.replace('R$&nbsp;', '')
+
+        let nomePersonalizacao = seleciona('.lojaInfo-valueNomePersonalizacao').value;
     
 	    let identificador = lojaJson[modalKey].id+'T'+size+lojaJson[modalKey].name
 
@@ -134,7 +136,7 @@ const adicionarNoCarrinho = () => {
             // adicionar objeto loja no carrinho
             let loja = {
                 identificador,
-                name: lojaJson[modalKey].name,
+                name: (nomePersonalizacao) ? nomePersonalizacao : lojaJson[modalKey].name,
                 id: lojaJson[modalKey].id,
                 size, // size: size
                 qt: quantlojas,
@@ -218,7 +220,7 @@ const atualizarCarrinho = (cartItem) => {
 
             let lojaSizeName = cart[i].size
 
-			let lojaName = `${lojaItem.name} (${lojaSizeName})`
+			let lojaName = `${(cart[i].name) ? cart[i].name : lojaItem.name} (${lojaSizeName})`
 
             desconto = lojaItem?.desconto
 
@@ -268,7 +270,7 @@ const atualizarCarrinho = (cartItem) => {
 		seleciona('.subtotal span:last-child').innerHTML = formatoReal(subtotal)
 		seleciona('.desconto span:last-child').innerHTML = formatoReal(desconto)
 		seleciona('.total span:last-child').innerHTML    = formatoReal(total)
-
+        seleciona('.lojaInfo-valueNomePersonalizacao').value = '';
         
 
 	} else {

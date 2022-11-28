@@ -33,7 +33,7 @@ let lojaJson = [
       pack: 100,
       packSell: 0,
       desconto: 0.69,
-      description: 'Caixa de Kaiffa'
+      description: 'Caixa de doces'
     },
     {
       id: 4,

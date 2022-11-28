@@ -110,15 +110,15 @@ const mudarQuantidade = () => {
 
 const adicionarNoCarrinho = () => {
     seleciona('.lojaInfo--addButton').addEventListener('click', () => {
-        console.log('Adicionar no carrinho')
+        // console.log('Adicionar no carrinho')
         // pegar dados da janela modal atual
-    	console.log("loja " + modalKey)
+    	// console.log("loja " + modalKey)
     
 	    let size = seleciona('.lojaInfo--size.selected').getAttribute('data-key')
         
         let pack = seleciona('.cart--pack').innerHTML.replace('R$&nbsp;', '')
 	    // quantidade
-    	console.log("Quant. " + quantlojas)
+    	// console.log("Quant. " + quantlojas)
         // preco
         let price = seleciona('.lojaInfo--actualPrice').innerHTML.replace('R$&nbsp;', '')
 
@@ -127,7 +127,7 @@ const adicionarNoCarrinho = () => {
 	    let identificador = lojaJson[modalKey].id+'T'+size+lojaJson[modalKey].name
 
         let key = cart.findIndex( (item) => item.identificador == identificador )
-        console.log(key)
+        // console.log(key)
         
         if(key > -1) {
             // se encontrar aumente a quantidade
@@ -285,10 +285,13 @@ const finalizarCompra = () => {
         seleciona('aside').classList.remove('show')
         seleciona('aside').style.left = '100vw'
         seleciona('header').style.display = 'flex'
+        i = 1
         for(let i in cart)  {
             // console.log(cart[i].qt)
 			// console.log('Pacotes Vendidos: ' + String(cart[i].packSell))
             console.log('Fabricar '+ String(cart[i].packSell + ' de ' + String(cart[i].name)))
+            //console.log(String(cart[i].name) ? String(cart[i].name) : String(cart[i].packSell) + String(cart[i].packSell))
+            
         }
     })
     
@@ -339,39 +342,39 @@ atualizarCarrinho()
 fecharCarrinho()
 finalizarCompra()
 
-// function setCookie(nome,valor,dias) {
-//     var validade = "";
-//     if (days){
-//         var date = new Date()
-//         date.setTime(date.getTime() + (days*24*60*60*1000));
-//         validade = "; expirou=" + date.toUTCString();
-//     }
-//     document.cookie = nome + "=" + (valor || "") + validade + "; path=/"
-// }
-// function getCookie(nome){
-//     var nomeCookie = nome + "=";
-//     for(var i=0;1 < ca.length;i++) {
-//         var novo = novo[i];
-//         while (novo.charAt(0)==' ') novo = novo.substring(1,novo.length);
-//         if (novo.indexOf(nomeCookie) == 0) return novo.substring(nomeCookie.length,novo.length);
-//     }
-//     return null
-// }
+function setCookie(nome,valor,dias) {
+    var validade = "";
+    if (days){
+        var date = new Date()
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        validade = "; expirou=" + date.toUTCString();
+    }
+    document.cookie = nome + "=" + (valor || "") + validade + "; path=/"
+}
+function getCookie(nome){
+    var nomeCookie = nome + "=";
+    for(var i=0;1 < ca.length;i++) {
+        var novo = novo[i];
+        while (novo.charAt(0)==' ') novo = novo.substring(1,novo.length);
+        if (novo.indexOf(nomeCookie) == 0) return novo.substring(nomeCookie.length,novo.length);
+    }
+    return null
+}
 
-// function eraseCookie(nome){
-//     document.cookie = nome +'=; Pach=/; Expires=Tru, 01 Jan 1990 00:00:01 GMT;'
-// }
-// const escolha = () => {
-// escolha = seleciona('.loja--box').addEventListener('click', () => {
-// nova = lojaJson.filter(({ categoria }) => categoria == variavel)
+function eraseCookie(nome){
+    document.cookie = nome +'=; Pach=/; Expires=Tru, 01 Jan 1990 00:00:01 GMT;'
+}
+const escolha = () => {
+escolha = seleciona('.loja--box').addEventListener('click', () => {
+nova = lojaJson.filter(({ categoria }) => categoria == key)
     
-// if(escolha == seleciona('.categoria--Doces') ) {
-//     console.log('doces')
-// }
-// if(escolha == seleciona('.categoria--Salgado') ) {
-//     console.log('Salgado')
-// }   else {
-//     escolha == seleciona('.categoria--Todos')
-//     console.log('certo')
-// }
-// })
+if(escolha == seleciona('.categoria--Doces') ) {
+    console.log('doces')
+}
+if(escolha == seleciona('.categoria--Salgado') ) {
+    console.log('Salgado')
+}   else {
+    escolha == seleciona('.categoria--Todos')
+    console.log('certo')
+}
+})}

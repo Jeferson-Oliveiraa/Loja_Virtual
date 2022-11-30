@@ -19,6 +19,35 @@ const formatoMonetario = (valor) => {
     }
 }
 
+var escolha = (escolha) => {
+    if (escolha == lojaJson({categoria})){
+        
+    }
+
+}
+
+var selecionarEscolha = seleciona("#categoria")
+
+for(var i = 0; i < selecionarEscolha.options.length; i++) {
+    console.log(selecionarEscolha)
+    if(selecionarEscolha[i].text == "Salgado") {
+        selecionarEscolha.selectedIndex = i;
+        console.log("Salgado")
+        //console.log(selecionarEscolha)
+        break
+    } else if (selecionarEscolha[i].text == "Doces"){
+        selecionarEscolha.selectedIndex = i;
+        console.log("Salgado")
+        //console.log(selecionarEscolha)
+        break
+    } else {
+        selecionarEscolha.selectedIndex = i;
+        console.log("--")
+        console.log(selecionarEscolha)
+        break
+    }
+}
+
 const abrirModal = () => {
     seleciona('.lojaWindowArea').style.opacity = 0 // transparente
     seleciona('.lojaWindowArea').style.display = 'flex'
@@ -139,6 +168,7 @@ const adicionarNoCarrinho = () => {
                 name: (nomePersonalizacao) ? nomePersonalizacao : lojaJson[modalKey].name,
                 id: lojaJson[modalKey].id,
                 size, // size: size
+                categoria,
                 qt: quantlojas,
                 price: parseFloat(price), // price: price
                 pack: lojaJson[modalKey].pack,
@@ -360,21 +390,3 @@ function getCookie(nome){
     }
     return null
 }
-
-function eraseCookie(nome){
-    document.cookie = nome +'=; Pach=/; Expires=Tru, 01 Jan 1990 00:00:01 GMT;'
-}
-const escolha = () => {
-escolha = seleciona('.loja--box').addEventListener('click', () => {
-nova = lojaJson.filter(({ categoria }) => categoria == key)
-    
-if(escolha == seleciona('.categoria--Doces') ) {
-    console.log('doces')
-}
-if(escolha == seleciona('.categoria--Salgado') ) {
-    console.log('Salgado')
-}   else {
-    escolha == seleciona('.categoria--Todos')
-    console.log('certo')
-}
-})}

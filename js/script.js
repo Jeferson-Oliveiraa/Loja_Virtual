@@ -19,13 +19,6 @@ const formatoMonetario = (valor) => {
     }
 }
 
-// var escolha = (escolha) => {
-//     if (escolha == lojaJson({categoria})){
-        
-//     }
-
-// }
-
 
 const abrirModal = () => {
     seleciona('.lojaWindowArea').style.opacity = 0 // transparente

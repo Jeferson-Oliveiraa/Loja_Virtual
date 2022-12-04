@@ -371,14 +371,14 @@ const filtro = () =>{
     itensEscolhidos.map((item, index ) => {
     
         let lojaItem = document.querySelector('.models .loja-item').cloneNode(true)
-        //console.log(lojaItem)
-        //document.querySelector('.loja-area').append(lojaItem)
+        console.log(lojaItem)
+        document.querySelector('.loja-area').append(lojaItem)
 
         const itensAnteriores = selecionaTodos('.loja-item ');
 
-        for(const element of itensAnteriores){
-            element.remove();
-        }
+        // for(const element of itensAnteriores){
+        //     element.remove();
+        // }
 
         seleciona('.loja-area').append(lojaItem)
     

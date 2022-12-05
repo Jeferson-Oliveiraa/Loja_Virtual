@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "file:///C:/Users/Desktop/Desktop/Loja_Virtual/index.html",
+            "url": "file:///C:/Users/Jefer/Desktop/Loja_Virtual/Loja_Virtual/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]

@@ -344,24 +344,24 @@ atualizarCarrinho()
 fecharCarrinho()
 finalizarCompra()
 
-function setCookie(nome,valor,dias) {
-    var validade = "";
-    if (days){
-        var date = new Date()
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        validade = "; expirou=" + date.toUTCString();
-    }
-    document.cookie = nome + "=" + (valor || "") + validade + "; path=/"
-}
-function getCookie(nome){
-    var nomeCookie = nome + "=";
-    for(var i=0;1 < ca.length;i++) {
-        var novo = novo[i];
-        while (novo.charAt(0)==' ') novo = novo.substring(1,novo.length);
-        if (novo.indexOf(nomeCookie) == 0) return novo.substring(nomeCookie.length,novo.length);
-    }
-    return null
-}
+// function setCookie(nome,valor,dias) {
+//     var validade = "";
+//     if (days){
+//         var date = new Date()
+//         date.setTime(date.getTime() + (days*24*60*60*1000));
+//         validade = "; expirou=" + date.toUTCString();
+//     }
+//     document.cookie = nome + "=" + (valor || "") + validade + "; path=/"
+// }
+// function getCookie(nome){
+//     var nomeCookie = nome + "=";
+//     for(var i=0;1 < ca.length;i++) {
+//         var novo = novo[i];
+//         while (novo.charAt(0)==' ') novo = novo.substring(1,novo.length);
+//         if (novo.indexOf(nomeCookie) == 0) return novo.substring(nomeCookie.length,novo.length);
+//     }
+//     return null
+// }
 
 const filtro = () =>{
     const escolha = document.getElementById('categoria').value; // atribuindo o valor ao filtro

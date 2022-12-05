@@ -362,15 +362,15 @@ finalizarCompra()
 //     }
 //     return null
 // }
-
 const filtro = () =>{
+    
     const escolha = document.getElementById('categoria').value; // atribuindo o valor ao filtro
 
     const itensEscolhidos = lojaJson.filter(item => item.categoria == escolha); 
 
     itensEscolhidos.map((item, index ) => {
-    
-        let lojaItem = document.querySelector('.models .loja-item').cloneNode(true)
+        
+        let lojaItem = document.querySelector('.models .loja-item').cloneNode(true) //cloneNode
         console.log(lojaItem)
         document.querySelector('.loja-area').append(lojaItem)
 

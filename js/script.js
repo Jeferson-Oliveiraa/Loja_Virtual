@@ -364,8 +364,18 @@ finalizarCompra()
 // }
 const filtro = () =>{
     
-    const escolha = document.getElementById('categoria').value; // atribuindo o valor ao filtro
+    //const escolha = document.getElementById('categoria').value; // atribuindo o valor ao filtro
+    //const itensEscolhidos = lojaJson.filter(item => item.categoria == escolha); 
 
+
+    const escolha = (escolha) =>{
+        if (escolha === "Doces" || escolha === "Salgado"){
+            escolha = document.getElementById('categoria').value;
+        }else{
+            escolha = lojaItem
+        }
+        // Preciso criar uma função para distruibuir o valor nela, se for doce ou salgado, selecionar, caso não ou clicando no '--' imprimir tudo.
+    }
     const itensEscolhidos = lojaJson.filter(item => item.categoria == escolha); 
 
     itensEscolhidos.map((item, index ) => {
@@ -375,10 +385,6 @@ const filtro = () =>{
         document.querySelector('.loja-area').append(lojaItem)
 
         const itensAnteriores = selecionaTodos('.loja-item ');
-
-        // for(const element of itensAnteriores){
-        //     element.remove();
-        // }
 
         seleciona('.loja-area').append(lojaItem)
     

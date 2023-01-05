@@ -439,25 +439,24 @@ lojaJson.map((item, index ) => {
 
    
 } )
-console.log('ok')
 const filtro = () =>{
-
-    lojaItem = document.querySelector('.models .loja-item').cloneNode(true)
     const escolha = document.getElementById('categoria').value; // atribuindo o valor ao filtro
-    const itensEscolhidos = lojaJson.filter(item => item.categoria == escolha); 
-    itensEscolhidos.map((item, index ) => {
-        document.querySelector(".models .loja-item").innerHTML = '--';
-        let lojaItem = document.querySelector('.models .loja-item').cloneNode(true) //cloneNode
-        console.log(lojaItem)
+    
+    lojaItem = document.querySelector('.models .loja-item').cloneNode(true)
+    
+        if (escolha !== '--'){
+            document.querySelector(".loja-area").innerHTML = '';
+            const itensEscolhidos = lojaJson.filter(item => item.categoria == escolha); 
+            itensEscolhidos.map((item, index ) => {
 
-        document.querySelector('.loja-area').append(lojaItem)
+            let lojaItem = document.querySelector('.models .loja-item').cloneNode(true) //cloneNode
+            console.log(lojaItem)
 
-        const itensAnteriores = selecionaTodos('.loja-item ');
-
-        seleciona('.loja-area').append(lojaItem)
+            document.querySelector('.loja-area').append(lojaItem)
+            seleciona('.loja-area').append(lojaItem)
         
-        preencheDadosDaslojas(lojaItem, item, index)      
-        lojaItem.querySelector('.loja-item a').addEventListener('click', (e) => {
+            preencheDadosDaslojas(lojaItem, item, index)      
+            lojaItem.querySelector('.loja-item a').addEventListener('click', (e) => {
             e.preventDefault()
             let chave = pegarKey(e)
             abrirModal()
@@ -470,4 +469,8 @@ const filtro = () =>{
         botoesFechar()
     
     }) // fim do MAPEAR lojaJson para gerar lista de lojas    
+}else{
+    return console.log('Alterar')
 }
+        }
+    

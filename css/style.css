@@ -415,6 +415,9 @@ h1, h2 {
     background-color:#35af4a;
 }
 
+.loja--box {
+    
+}
 
 @media (max-width:1000px) {
     .loja-area {
@@ -539,3 +542,4 @@ h1, h2 {
 #img-logo {
     width: 50px;
 }
+

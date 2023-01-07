@@ -363,60 +363,6 @@ finalizarCompra()
 //     return null
 // }
 
-
-
-// lojaJson.map((item, index ) => {            
-//     const filtro = () =>{
-//         lojaItem = document.querySelector('.models .loja-item').cloneNode(true)
-//         const escolha = document.getElementById('categoria').value; // atribuindo o valor ao filtro
-//         const itensEscolhidos = lojaJson.filter(item => item.categoria == escolha); 
-//         itensEscolhidos.map((item, index ) => {
-            
-//             let lojaItem = document.querySelector('.models .loja-item').cloneNode(true) //cloneNode
-//             console.log(lojaItem)
-    
-//             document.querySelector('.loja-area').append(lojaItem)
-    
-//             const itensAnteriores = selecionaTodos('.loja-item ');
-    
-//             seleciona('.loja-area').append(lojaItem)
-            
-//             preencheDadosDaslojas(lojaItem, item, index)      
-//             lojaItem.querySelector('.loja-item a').addEventListener('click', (e) => {
-//                 e.preventDefault()
-//                 let chave = pegarKey(e)
-//                 abrirModal()
-//                 preencherCor(chave)
-//                 preencheDadosModal(item)
-//                 seleciona('.lojaInfo--qt').innerHTML = quantlojas
-//                 escolherCor(chave) 
-            
-//             }) 
-//             botoesFechar()
-        
-//         }) // fim do MAPEAR lojaJson para gerar lista de lojas    
-//     }
-//     let lojaItem = document.querySelector('.models .loja-item').cloneNode(true)
-//     seleciona('.loja-area').append(lojaItem)
-//     preencheDadosDaslojas(lojaItem, item, index)
-
-
-//     lojaItem.querySelector('.loja-item a').addEventListener('click', (e) => {
-//     e.preventDefault()
-
-//     console.log('Clicou na loja')
-//     let chave = pegarKey(e)
-//     abrirModal()
-//     preencherCor(chave)
-//     preencheDadosModal(item)
-// 	seleciona('.lojaInfo--qt').innerHTML = quantlojas
-//     escolherCor(chave)
-//     })
-//     botoesFechar() 
-
-   
-// } )
-
 lojaJson.map((item, index ) => {            
 
     let lojaItem = document.querySelector('.models .loja-item').cloneNode(true)
@@ -450,7 +396,6 @@ const filtro = () =>{
             itensEscolhidos.map((item, index ) => {
 
             let lojaItem = document.querySelector('.models .loja-item').cloneNode(true) //cloneNode
-            console.log(lojaItem)
 
             document.querySelector('.loja-area').append(lojaItem)
             seleciona('.loja-area').append(lojaItem)
@@ -470,7 +415,29 @@ const filtro = () =>{
     
     }) // fim do MAPEAR lojaJson para gerar lista de lojas    
 }else{
-    return console.log('Alterar')
+    document.querySelector(".loja-area").innerHTML = '';
+    lojaJson.map((item, index ) => {            
+
+        let lojaItem = document.querySelector('.models .loja-item').cloneNode(true)
+        seleciona('.loja-area').append(lojaItem)
+        preencheDadosDaslojas(lojaItem, item, index)
+    
+    
+        lojaItem.querySelector('.loja-item a').addEventListener('click', (e) => {
+            e.preventDefault()
+    
+        console.log('Clicou na loja')
+        let chave = pegarKey(e)
+        abrirModal()
+        preencherCor(chave)
+        preencheDadosModal(item)
+        seleciona('.lojaInfo--qt').innerHTML = quantlojas
+        escolherCor(chave)
+        })
+        botoesFechar() 
 }
+)
+}   
+
         }
     

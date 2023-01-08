@@ -5,7 +5,7 @@ let lojaJson = [
       img: ['images/ButterToffees.png'],
       categoria: 'Doces',
       price: [30.00, 50.00, 70.00],
-      sizes: ['Pequena - 250g','Média - 400g','Grande - 700g'],
+      sizes: ['Pequeno - 250g','Médio - 400g','Grande - 700g'],
       pack: 25,
       packSell: 0,
       desconto: 0.1,

@@ -22,7 +22,7 @@ header {
     left:0; /*0*/
     top:0;
     right:0;
-    height:70px; /*60*/
+    height:70px; /*80*/
     background-color:#169784; 
     display:flex; /* none; */
     justify-content: space-between ; /* flex-end; */ 
@@ -78,7 +78,7 @@ aside.show {
 
 main {
     flex:1;
-    padding:30px; /* Normal aqui é 20*/
+    padding:20px; /* Normal aqui é 20*/
     margin-top:60px;
 }
 
@@ -112,11 +112,12 @@ h1, h2 {
     background-color:#EEE;
     border-radius:100px;
     box-shadow:0px 10px 50px rgba(0, 0, 0, 0.2);
+    display: ;
 }
 
 .loja-item--img img {
     width:100%;
-    height:auto;
+    height:auto; 
 }
 
 .loja-item--add {
@@ -415,9 +416,6 @@ h1, h2 {
     background-color:#35af4a;
 }
 
-.loja--box {
-    
-}
 
 @media (max-width:1000px) {
     .loja-area {

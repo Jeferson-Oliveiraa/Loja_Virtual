@@ -298,98 +298,30 @@ const finalizarCompra = () => {
     })
     
 }
+const dados = () =>{
+    lojaJson.map((item, index ) => {            
 
-// // MAPEAR lojaJson para gerar lista de lojas
-// lojaJson.map((item, index ) => {
+        let lojaItem = document.querySelector('.models .loja-item').cloneNode(true)
+        seleciona('.loja-area').append(lojaItem)
+            preencheDadosDaslojas(lojaItem, item, index)
+            lojaItem.querySelector('.loja-item a').addEventListener('click', (e) => {
+                e.preventDefault()
     
-//     let lojaItem = document.querySelector('.models .loja-item').cloneNode(true)
-//     //console.log(lojaItem)
-//     //document.querySelector('.loja-area').append(lojaItem)
-//     seleciona('.loja-area').append(lojaItem)
-
-//     // preencher os dados de cada loja
-//     preencheDadosDaslojas(lojaItem, item, index)
-    
-//     // loja clicada
-//     lojaItem.querySelector('.loja-item a').addEventListener('click', (e) => {
-//         e.preventDefault()
-//         //console.log('Clicou na loja')
-
-//         let chave = pegarKey(e)
-
-//         // abrir janela modal
-//         abrirModal()
-
-//         preencherCor(chave)
-
-//         // preenchimento dos dados
-//         preencheDadosModal(item)
-
-// 		// definir quantidade inicial como 1
-// 		seleciona('.lojaInfo--qt').innerHTML = quantlojas
-
-//         escolherCor(chave)
-
-//     })
-
-//     botoesFechar()
-
-// }) // fim do MAPEAR lojaJson para gerar lista de lojas
-
-
-// mudar quantidade com os botoes + e -
-mudarQuantidade()
-adicionarNoCarrinho()
-atualizarCarrinho()
-fecharCarrinho()
-finalizarCompra()
-
-// function setCookie(nome,valor,dias) {
-//     var validade = "";
-//     if (days){
-//         var date = new Date()
-//         date.setTime(date.getTime() + (days*24*60*60*1000));
-//         validade = "; expirou=" + date.toUTCString();
-//     }
-//     document.cookie = nome + "=" + (valor || "") + validade + "; path=/"
-// }
-// function getCookie(nome){
-//     var nomeCookie = nome + "=";
-//     for(var i=0;1 < ca.length;i++) {
-//         var novo = novo[i];
-//         while (novo.charAt(0)==' ') novo = novo.substring(1,novo.length);
-//         if (novo.indexOf(nomeCookie) == 0) return novo.substring(nomeCookie.length,novo.length);
-//     }
-//     return null
-// }
-
-lojaJson.map((item, index ) => {            
-
-    let lojaItem = document.querySelector('.models .loja-item').cloneNode(true)
-    seleciona('.loja-area').append(lojaItem)
-    preencheDadosDaslojas(lojaItem, item, index)
-
-
-    lojaItem.querySelector('.loja-item a').addEventListener('click', (e) => {
-        e.preventDefault()
-
-    console.log('Clicou na loja')
-    let chave = pegarKey(e)
-    abrirModal()
-    preencherCor(chave)
-    preencheDadosModal(item)
-	seleciona('.lojaInfo--qt').innerHTML = quantlojas
-    escolherCor(chave)
-    })
-    botoesFechar() 
-
-   
-} )
+            console.log('Clicou na loja')
+            let chave = pegarKey(e)
+            abrirModal()
+            preencherCor(chave)
+            preencheDadosModal(item)
+            seleciona('.lojaInfo--qt').innerHTML = quantlojas
+            escolherCor(chave)
+            })
+            botoesFechar() 
+       
+    } )
+}
 const filtro = () =>{
     const escolha = document.getElementById('categoria').value; // atribuindo o valor ao filtro
-    
-    lojaItem = document.querySelector('.models .loja-item').cloneNode(true)
-    
+    lojaItem = document.querySelector('.models .loja-item').cloneNode(true)    
         if (escolha !== '--'){
             document.querySelector(".loja-area").innerHTML = '';
             const itensEscolhidos = lojaJson.filter(item => item.categoria == escolha); 
@@ -416,28 +348,37 @@ const filtro = () =>{
     }) // fim do MAPEAR lojaJson para gerar lista de lojas    
 }else{
     document.querySelector(".loja-area").innerHTML = '';
-    lojaJson.map((item, index ) => {            
-
-        let lojaItem = document.querySelector('.models .loja-item').cloneNode(true)
-        seleciona('.loja-area').append(lojaItem)
-        preencheDadosDaslojas(lojaItem, item, index)
-    
-    
-        lojaItem.querySelector('.loja-item a').addEventListener('click', (e) => {
-            e.preventDefault()
-    
-        console.log('Clicou na loja')
-        let chave = pegarKey(e)
-        abrirModal()
-        preencherCor(chave)
-        preencheDadosModal(item)
-        seleciona('.lojaInfo--qt').innerHTML = quantlojas
-        escolherCor(chave)
-        })
-        botoesFechar() 
-}
-)
+    dados()
 }   
 
-        }
-    
+}
+        
+
+// mudar quantidade com os botoes + e -
+mudarQuantidade()
+adicionarNoCarrinho()
+atualizarCarrinho()
+fecharCarrinho()
+finalizarCompra()
+dados()
+
+
+
+// function setCookie(nome,valor,dias) {
+//     var validade = "";
+//     if (days){
+//         var date = new Date()
+//         date.setTime(date.getTime() + (days*24*60*60*1000));
+//         validade = "; expirou=" + date.toUTCString();
+//     }
+//     document.cookie = nome + "=" + (valor || "") + validade + "; path=/"
+// }
+// function getCookie(nome){
+//     var nomeCookie = nome + "=";
+//     for(var i=0;1 < ca.length;i++) {
+//         var novo = novo[i];
+//         while (novo.charAt(0)==' ') novo = novo.substring(1,novo.length);
+//         if (novo.indexOf(nomeCookie) == 0) return novo.substring(nomeCookie.length,novo.length);
+//     }
+//     return null
+// }

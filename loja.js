@@ -1,7 +1,7 @@
 let lojaJson = [
   {
       id: 1,
-      name: 'Butter Toffees',
+      name: 'Doce de Leite',
       img: ['images/ButterToffees.png'],
       categoria: 'Doces',
       price: [30.00, 50.00, 70.00],
@@ -9,7 +9,7 @@ let lojaJson = [
       pack: 25,
       packSell: 0,
       desconto: 0.1,
-      description: 'Butter Toffees Sabores Sortidos'
+      description: 'Cada caixa contém 25 unidades.'
     },
     {
       id: 2,

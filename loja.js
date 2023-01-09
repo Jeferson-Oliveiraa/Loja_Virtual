@@ -21,7 +21,7 @@ let lojaJson = [
       pack: 50,
       packSell: 0,
       desconto: 0.10,
-      description: 'Sabor Framboesa'
+      description: 'Cada caixa contém 50 unidades.'
     },
     {
       id: 3,
@@ -33,7 +33,7 @@ let lojaJson = [
       pack: 100,
       packSell: 0,
       desconto: 0.69,
-      description: 'Caixa de doces'
+      description: 'Cada caixa contém 100 unidades.'
     },
     {
       id: 4,
@@ -45,7 +45,7 @@ let lojaJson = [
       pack: 7,
       packSell: 0,
       desconto: 0.2,
-      description: 'Salgadinho de Batata Frita'
+      description: 'Cada caixa contém 7 unidades.'
     },
     {
       id: 5,
@@ -57,6 +57,6 @@ let lojaJson = [
       pack: 1,
       packSell: 0,
       desconto: 0.0,
-      description: 'Salgadinho de Batata Frita'
+      description: 'Cada caixa contém 1 unidade.'
     },
 ];

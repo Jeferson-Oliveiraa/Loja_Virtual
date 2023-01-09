@@ -288,11 +288,12 @@ const finalizarCompra = () => {
         seleciona('aside').style.left = '100vw'
         seleciona('header').style.display = 'flex'
         i = 1
+
         for(let i in cart)  {
             // console.log(cart[i].qt)
 			// console.log('Pacotes Vendidos: ' + String(cart[i].packSell))
-            console.log('Fabricar '+ String(cart[i].packSell + ' de ' + String(cart[i].name)))
-            //console.log(String(cart[i].name) ? String(cart[i].name) : String(cart[i].packSell) + String(cart[i].packSell))
+            // console.log('Fabricar '+ String(cart[i].packSell + ' de ' + String(cart[i].name)))
+            console.log(String(cart[i].name) ? String(cart[i].name) : String(cart[i].packSell) + String(cart[i].packSell))
             
         }
     })

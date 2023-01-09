@@ -416,6 +416,19 @@ h1, h2 {
     background-color:#35af4a;
 }
 
+.categoria {
+    padding: 0px 29px;
+    padding-inline-start: auto;
+    border-radius: 5px;
+}
+.butt {
+    border-radius: 5px;
+}
+
+button {
+    padding: center;
+    padding-inline-start: auto ;
+}
 
 @media (max-width:1000px) {
     .loja-area {

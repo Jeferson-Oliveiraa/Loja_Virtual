@@ -112,46 +112,42 @@ const mudarQuantidade = () => {
 const adicionarNoCarrinho = () => {
     seleciona('.lojaInfo--addButton').addEventListener('click', () => {
         console.log('Adicionar no carrinho');
-        // pegar dados da janela modal atual
-        console.log("loja " + modalKey);
-
-        let size = seleciona('.lojaInfo--size.selected').getAttribute('data-key');
-
-        let pack = seleciona('.cart--pack').innerHTML.replace('R$&nbsp;', '');
-        // quantidade
-        console.log("Quant. " + quantlojas);
-        // preco
-        let price = seleciona('.lojaInfo--actualPrice').innerHTML.replace('R$&nbsp;', '');
 
         let nomePersonalizacao = seleciona('.lojaInfo-valueNomePersonalizacao').value;
+        let size = seleciona('.lojaInfo--size.selected').getAttribute('data-key');
+        let pack = seleciona('.cart--pack').innerHTML.replace('R$&nbsp;', '');
+        let price = seleciona('.lojaInfo--actualPrice').innerHTML.replace('R$&nbsp;', '');
+        
+        let identificador;
 
-        let identificador = lojaJson[modalKey].id + 'T' + size + lojaJson[modalKey].name;
+        if (nomePersonalizacao) {
+            identificador = lojaJson[modalKey].id + 'T' + size + nomePersonalizacao;
+        } else {
+            identificador = lojaJson[modalKey].id + 'T' + size + lojaJson[modalKey].name;
+        }
 
-        let key = cart.findIndex((item) => item.identificador == identificador);
-        // console.log(key)
+        // Verifica se já existe um item no carrinho com o mesmo identificador
+        let key = cart.findIndex((item) => item.identificador === identificador);
 
         if (key > -1) {
-            // se encontrar aumente a quantidade
+            // Se encontrar o item, incrementa a quantidade
             cart[key].qt += quantlojas;
         } else {
-            // adicionar objeto loja no carrinho
+            // Adiciona o item como um novo item no carrinho
+            let nome = nomePersonalizacao ? nomePersonalizacao : lojaJson[modalKey].name;
+
             let loja = {
                 identificador,
-                name: (nomePersonalizacao) ? nomePersonalizacao : lojaJson[modalKey].name,
+                name: nome,
                 id: lojaJson[modalKey].id,
-                size, size: size,
+                size,
                 categoria: lojaJson[modalKey].categoria,
                 qt: quantlojas,
-                price: parseFloat(price), // price: price
+                price: parseFloat(price),
                 pack: lojaJson[modalKey].pack,
-                packSell: 0,
-
+                packSell: 0
             };
             cart.push(loja);
-            console.log(loja);
-            console.log('Sub total R$ ' + (loja.qt * loja.price).toFixed(2));
-
-
         }
 
         fecharModal();
@@ -159,6 +155,8 @@ const adicionarNoCarrinho = () => {
         atualizarCarrinho();
     });
 };
+
+
 
 const abrirCarrinho = () => {
     console.log('Qtd de itens no carrinho ' + cart.length);

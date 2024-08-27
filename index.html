@@ -1,153 +1,515 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="dark">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/LojaVirtual.png" />
-
-    <title>Naressi store</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title> Jeferson Naressi | Portfolio </title>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-
-    <!-- modelos de loja na lista e no carrinho -->
-    <div class="models">
-
-        <!-- loja na lista -->
-        <div class="loja-item">
-            <a href="">
-                <div class="loja-item--img"><img src="" /></div>
-                <div class="loja-item--add">+</div>
-            </a>
-            <div class="loja-item--price">R$ --</div>
-            <div class="loja-item--name">--</div>
-            <div class="loja-item--desc">--</div>
-        </div>
-
-        <!-- loja no carrinho -->
-        <div class="cart--item">
-            <img src="" />
-            <imgs src="" />
-            <div class="cart--item-nome">--</div>
-            <div class="cart--item--qtarea">
-                <button class="cart--item-qtmenos">-</button>
-                <div class="cart--item--qt">1</div>
-                <button class="cart--item-qtmais">+</button>
-            </div>
-        </div>
-
-    </div>
-    <!-- /models -->
-
-    <!-- .menu-openner aparecera no modo mobile -->
-    <header>
-        <h1>Naressi store</h1>
-        <div class="loja--box">
-        <form action="">
-            <select class="categoria" id="categoria">
-                <option value="Todos">Todos</option>
-                <option value="Doces">Doces</option>
-                <option value="Salgado">Salgado</option>
-            </select>
-            <div>
-                <input class="butt" type="button" value="Escolher categoria" onclick="filtro()">
-            </div>
-        </form>
-        </div> 
-        <div class="menu-openner"><span>0</span>🛒</div>
-    </header> 
-
-    <!-- /menu-openner -->
-
-    <!-- conteudo principal -->
-    <main>
+    <header id="header"> <!-- cabeçalho -->
+        <nav class="header-nav">
+        <!-- "header-nav" - Isso pode ser útil quando você deseja ocultar
+        a navegação de um cabeçalho, por exemplo, 
+        em certos dispositivos ou resoluções de tela. -->
+            <ul class="menu menu-principal">
+                <li class="menu-item">
+                   <a class="menu-link active" href="#home"> 
+                       <span class="menu-text"> Home </span> 
+                   </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="#projetos">
+                       <span class="menu-text"> Projetos </span> 
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="#sobre">
+                       <span class="menu-text"> Sobre </span> 
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="#contato">
+                       <span class="menu-text"> Contato </span> 
+                    </a>
+                </li>
+            </ul>
+        </nav>
         
-        <h2>Mercadorias</h2>
+        <div class="header-logo">  <!-- area do logo -->
+            <a href="#home">
+                <img class="logo" src="img/logo.png" 
+                alt="">
+            </a>
+        </div><!-- Fim area do logo -->
 
-        <div class="loja-area"></div>
-
-    </main>
-    <!-- /conteudo principal -->
-
-    <!-- aside do carrinho -->
-    <aside>
-        <div class="cart--area">
-            <div class="menu-closer">❌</div>
-            <h1>Seus produtos</h1>
-            <div class="cart"></div>
-            <div class="cart--pack"></div>
-            <div class="cart--details">
-                <div class="cart--totalitem subtotal">
-                    <span>Subtotal</span>
-                    <span>R$ --</span>
-                </div>
-                <div class="cart--totalitem desconto">
-                    <span>Desconto</span>
-                    <span>R$ --</span>
-                </div>
-                <div class="cart--totalitem total big">
-                    <span>Total</span>
-                    <span>R$ --</span>
-                </div>
-                <div class="cart--finalizar">Finalizar a compra</div> 
-            </div>
+        <div class="header-toggle">
+            <i id="toggleTheme" class="bi bi-sun"></i>
         </div>
-    </aside>
-    <!-- /aside do carrinho -->
+    </header>
+    <!-- fim cabeçalho -->
+    <!-- menu mobile -->
+    <nav class="nav-mobile">
+        <ul class="menu menu-mobile">
+            
+            <li class="menu-item">
+                <a class="menu-link active" href="#home">
+                    <i class="menu-icon bi bi-house-door"> </i>
+                    <span class="menu-text"> Home </span>
+                </a>
+            </li>
 
-<!-- --<div class="cookies-container">
-    <div class="cookie-content">
-        <p>Coletando cookie</p>
-    <div class="cookie-pref">
-        <input type="checkbox" name="" id="">
-    </div>
-    </div>
-</div>  -->
+            <li class="menu-item">
+                <a class="menu-link" href="#projetos">
+                    <i class="menu-icon bi bi-window-stack"> </i>
+                    <span class="menu-text"> Projetos </span>
+                </a>
+            </li>
 
-    <!-- janela modal .lojaWindowArea -->
+            <li class="menu-item"> 
+                <a class="menu-link" href="#sobre">
+                    <i class="menu-icon bi bi-person"> </i>
+                    <span class="menu-text"> Sobre </span>
+                </a>
+            </li>
 
-    <div class="lojaWindowArea">
-        <div class="lojaWindowBody">
-            <div class="lojaInfo--cancelMobileButton">Voltar</div>
-            <div class="lojaBig">
-                <img src="" />
-            </div>
-            <div class="lojaInfo">
-                <h1>--</h1>
-                <div class="lojaInfo--desc">--</div>
-                <div class="lojaInfo-nomePersonalizacao">
-                    <label>Personalização nome *Opcional
-                        <input type="text" class="lojaInfo-valueNomePersonalizacao">
-                    </label>
+            <li class="menu-item">
+                <a class="menu-link" href="#contato">
+                    <i class="menu-icon bi bi-envelope"> </i>
+                    <span class="menu-text"> Contato </span>
+                </a>
+            </li>
+        </ul>
+    </nav>    
+    <!-- Fim menu mobile -->
+
+    <main id="home">
+        <div class="main-content">
+            <h1> <b> Jeferson Naressi </b> Desenvolvedor ASP.NET </h1>
+            <p> Jeferson Naressi, São Paulo - SP, Desenvolvedor.  
+            </p>
+
+            <ul class="menu menu-social">
+                
+                <li>
+                    <a class="menu-link" href="https://github.com/Jeferson-Oliveiraa" target="_blank">
+                        <i class="menu-icon bi bi-github"></i>    
+                    </a>
+                </li>
+
+                <li>
+                    <a class="menu-link" href="https://www.linkedin.com/in/jeferson-oliveiraa" target="_blank">
+                        <i class="menu-icon bi bi-linkedin"></i>    
+                    </a>
+                </li>
+
+                <li>
+                    <a class="menu-link" href="https://www.instagram.com/jeferson.naressi" target="_blank">
+                        <i class="menu-icon bi bi-instagram"></i>  
+                    </a>
+                </li>
+
+                <li>
+                    <a class="menu-link" href="https://web.facebook.com/Jeferson.Naressi.Oliveira" target="_blank">
+                        <i class="menu-icon bi bi-facebook"> </i>    
+                    </a>
+                </li>
+            </ul>
+
+            <a href="#projetos">
+                <button class="btn btn-primary">
+                    <span> Ver Projetos </span>
+                    <i class="bi bi-arrow-down-right"> </i>
+                </button>
+            </a>
+        </div>  <!-- Fim main-content -->
+
+        <div class="video">
+            <iframe width="" height="" src="https://www.youtube.com/embed/hlgm_1Bzt-4?si=_Qsff4hzWYJit00m" title="Apresentação" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </main>
+
+    <section class="tecnologias">
+        <h2>Conhecimento nas principais tecnologias do mercado.</h2>
+        
+        <ul class="tecnologias-lista">
+
+            <li class="tecnologia-item">
+                <img class="tecnologia-logo" src="img/tecnologias/HTML5.svg">       
+            </li>
+
+            <li class="tecnologia-item">
+                <img class="tecnologia-logo" src="img/tecnologias/Css.svg" alt="">
+            </li>
+
+            <li class="tecnologia-item">
+                <img class="tecnologia-logo" src="img/tecnologias/Javascript.svg" alt="">       
+            </li>
+
+            <li class="tecnologia-item">
+                <img class="tecnologia-logo" src="img/tecnologias/Bootstrap.svg" alt="">
+            </li>
+        </ul>
+    </section> <!-- fim tecnologias --> 
+
+    <section id="projetos" class="projetos">
+        <h2>Projetos</h2>
+        <div class="projeto-container">
+
+            <div class="projeto-card">
+                <img class="card-cover" src="img/projetos/josisbox.jpg" alt="">
                     
+                    <div class="card-body">
+
+                        <h3 class="card-title"> Josi's Box Ecommerce </h3>
+                        <p class="card-descricao"> Ecommerce de Livros </p>
+                        <ul class="card-lista">
+                            <li class="card-item">
+                                Listagem de Favoritos;
+                            </li>
+                            <li class="card-item">
+                                Carrinho de Comprar;
+                            </li>
+                            <li class="card-item">
+                                Filtragem por Preço e Categoria;
+                            </li>
+                        </ul>
+
+                        <ul class="tecnologias-lista"> 
+                            
+                            <li class="tecnologia-item">
+                                <img class="tecnologia-logo" src="img/tecnologias/Angular.svg" alt="">
+                            </li>
+                        
+                            <li class="tecnologia-item">
+                                <img class="tecnologia-logo" src="img/tecnologias/Javascript.svg" alt="">
+                            </li>
+
+                            <li class="tecnologia-item">
+                                <img class="tecnologia-logo" src="img/tecnologias/HTML5.svg" alt="">
+                            </li>
+
+                            <li class="tecnologia-item">
+                                <img class="tecnologia-logo" src="img/tecnologias/Css.svg" alt="">
+                            </li>
+                        </ul>
+
+                        <div class="card-button">
+                            <button class="btn btn-primary">
+                                <a href="https://jeferson-oliveiraa.github.io/Loja_Virtual/"
+                                target="_blank">  
+                                    <span> Prévia </span>
+                                    <i class="bi bi-arrow-up-right"> </i>
+                                </a>
+                            </button>
+                            <button class="btn">
+                                <a href="https://github.com/Jeferson-Oliveiraa" target="_blank"> 
+                                    <span> Repositório </span>
+                                </a>
+                            </button>
+                        </div>
+                    </div>  <!-- card body -->
+            </div>  <!-- Fim projeto-card -->
+
+            <div class="projeto-card card-reverse">
+                <img class="card-cover" src="img/projetos/portfolio.PNG" alt="">
+                    
+                    <div class="card-body">
+
+                        <h3 class="card-title"> Portfolio Pessoal </h3>
+                        <p class="card-descricao"> A história por trás do meu Portfolio. </p>
+                        <ul class="card-lista">
+                            <li class="card-item">
+                                Postagens relacionadas em Destaque;
+                            </li>
+                            <li class="card-item">
+                                Seção dos Projetos;
+                            </li>
+                            <li class="card-item">
+                                Biografia do Autor;
+                            </li>
+                        </ul>
+
+                        <ul class="tecnologias-lista"> 
+                            
+                            <li class="tecnologia-item">
+                                <img class="tecnologia-logo" src="img/tecnologias/HTML5.svg" alt="">
+                            </li>
+
+                            <li class="tecnologia-item">
+                                <img class="tecnologia-logo" src="img/tecnologias/Css.svg" alt="">
+                            </li>
+
+                            <li class="tecnologia-item">
+                                <img class="tecnologia-logo" src="img/tecnologias/Bootstrap.svg" alt="">
+                            </li>
+
+                            <li class="tecnologia-item">
+                                <img class="tecnologia-logo" src="img/tecnologias/Javascript.svg" alt="">
+                            </li>
+                        </ul>
+
+                        <div class="card-button">
+                            <button class="btn btn-primary">
+                                <a href="https://github.com/Jeferson-Oliveiraa"
+                                target="_blank">
+                                    <span> Prévia </span>
+                                    <i class="bi bi-arrow-up-right"> </i>
+                                </a>
+                            </button>
+                            <button class="btn">
+                                <a href="https://github.com/Jeferson-Oliveiraa" target="_blank"> 
+                                    <span> Repositório </span>
+                                </a>
+                            </button>
+                        </div>
+                    </div>  <!-- card body -->
+            </div>  <!-- Fim projeto-card card-reverse -->
+
+            <div class="projeto-card">
+                <img class="card-cover" src="img/projetos/josisbox.jpg" alt="">
+                    
+                    <div class="card-body">
+
+                        <h3 class="card-title"> Games Store </h3>
+                        <p class="card-descricao"> Loja online de games </p>
+                        <ul class="card-lista">
+                            <li class="card-item">
+                                Favoritos;
+                            </li>
+                            <li class="card-item">
+                                Carrinho de Comprar
+                            </li>
+                            <li class="card-item">
+                                Filtragem por Preço e Categoria;
+                            </li>
+                        </ul>
+
+                        <ul class="tecnologias-lista"> 
+                            
+                            <li class="tecnologia-item">
+                                <img class="tecnologia-logo" src="img/tecnologias/Angular.svg" alt="">
+                            </li>
+
+                            <li class="tecnologia-item">
+                                <img class="tecnologia-logo" src="img/tecnologias/Javascript.svg" alt="">
+                            </li>
+
+                            <li class="tecnologia-item">
+                                <img class="tecnologia-logo" src="img/tecnologias/HTML5.svg" alt="">
+                            </li>
+
+                            <li class="tecnologia-item">
+                                <img class="tecnologia-logo" src="img/tecnologias/Css.svg" alt="">
+                            </li>
+                        </ul>
+
+                        <div class="card-button">
+                            <button class="btn btn-primary">
+                                <a href="https://www.amazon.com.br/Livros/b/?ie=UTF8&node=6740748011&ref_=nav_cs_books"
+                                target="_blank">  
+                                    <span> Prévia </span>
+                                    <i class="bi bi-arrow-up-right"> </i>
+                                </a>
+                            </button>
+                            <button class="btn">
+                                <a href="https://github.com/Jeferson-Oliveiraa" target="_blank"> 
+                                    <span> Repositório </span>
+                                </a>
+                            </button>
+                        </div> <!-- card-button -->
+                    </div>  <!-- card body -->
+            </div>  <!-- Fim projeto-card -->
+
+        </div> <!-- Fim projeto-container -->
+    </section> <!-- fim projetos -->
+
+    <section id="sobre" class="sobre">
+
+        <div class="sobre-content1">
+            
+            <img class="sobre-logo" src="img/avatar.jpg" alt="">
+
+            <div class="sobre-descricao">
+
+                <h2> Sobre Mim </h2>
+                <p>
+                    Minha jornada acadêmica está focada no desenvolvimento, onde busco constantemente adquirir e aplicar meus conhecimentos. Atualmente, sou Analista de Suporte na Softtek, uma área com a qual me identifico muito. Tenho um grande interesse em progredir na área de tecnologia, dedicando-me de forma contínua.
+                    No momento, possuo conhecimentos em diversas linguagens de programação, incluindo ASP.NET C#, Python e JavaScript. Além disso, estou familiarizado com bancos de dados, como MySQL e SQL. Minhas habilidades de desenvolvimento também abrangem o uso eficiente de ferramentas como Git e Github. Quanto às IDEs, costumo utilizar Visual Studio, Visual Code e pycharm e também tenho conhecimento em  Postman e Swagger para consumo de API tudo para otimizar meu processo de desenvolvimento.
+                    
+                    Estou sempre buscando aprender e me manter atualizado com as últimas tecnologias e práticas recomendadas de suporte.
+                </p>
+                
+                <div class="sobre-icones"> 
+                    <i class="bi bi-translate"> </i>
+                    <span> Inglês: Básico </span>
                 </div>
-                <div class="lojaInfo--sizearea">
-                    <div class="lojaInfo--sector">Tamanho dos pacotes dentro das caixas
-                        <div class="lojaInfo--sizes">
-                            <div data-key="P" class="lojaInfo--size"><span></span></div>
-                            <div data-key="M" class="lojaInfo--size"><span></span></div>
-                            <div data-key="G" class="lojaInfo--size selected"><span>--</span></div>
-                        </div>                                      
+                
+                <div class="descricao-button">
+                    <a href="https://www.linkedin.com/in/jeferson-oliveiraa" target="_blank">
+                        
+                        <button class="btn btn-primary">
+                            <span> Conecte-se Comigo </span>
+                            <i class="bi bi-arrow-up-right"> </i>
+                        </button>
+                    </a>
                 </div>
-                <div class="lojaInfo--pricearea">
-                    <div class="lojaInfo--sector">Preço</div>
-                    <div class="lojaInfo--price">
-                        <div class="lojaInfo--actualPrice">R$ --</div>
-                        <div class="lojaInfo--qtarea">
-                            <button class="lojaInfo--qtmenos">-</button>
-                            <div class="lojaInfo--qt">1</div>
-                            <button class="lojaInfo--qtmais">+</button>
+
+            </div> <!-- sobre-descricao -->
+        </div> <!-- fim conteudo 1 -->
+
+        <div class="sobre-content2">
+
+            <div class="col1">
+                <div class="row1">
+                    <h3> Formação </h3>
+                    <h4>Analise e Desenvolvimento de Sistema</h4>
+                    <span>Concluído</span>
+                    <div class="sobre-icones">
+                        <i class="bi bi-bank"></i>
+                        <span>FAM - Faculdade das Américas</span>
+                    </div>
+                    <div class="sobre-icones">
+                        <i class="bi bi-mortarboard"></i>
+                        <span>Graduação</span> <br><br>
+                    </div>
+    
+                    <h4>Desenvolvedor ASP.NET</h4>
+                    <span>Cursando</span>
+                    <div class="sobre-icones">
+                        <i class="bi bi-bank"></i>
+                        <span>Desenvolvedor.io</span>
+                    </div>
+                    <div class="sobre-icones">
+                        <i class="bi bi-award-fill"></i>
+                        <span>Curso Profissionalizante</span> <br><br>
+                    </div>
+
+                    <h4>Desenvolvedor Front-End</h4>
+                    <span>Concluído</span>
+                    <div class="sobre-icones">
+                        <i class="bi bi-bank"></i>
+                        <span>Senai Vila Leopoldina - Mariano Ferraz</span>
+                    </div>
+                    <div class="sobre-icones">
+                        <i class="bi bi-award-fill"></i>
+                        <span>Curso Técnico</span> <br><br>
+                    </div>
+    
+                    <h4>Microsoft Power Platform Fundamentals - PL-900</h4>
+                    <span>Concluído</span>
+                    <div class="sobre-icones">
+                        <i class="bi bi-bank"></i>
+                        <span>Senai - Nadir Dias de Figueiredo</span>
+                    </div>
+                    <div class="sobre-icones">
+                        <i class="bi bi-award-fill"></i>
+                        <span>Curso Técnico</span> <br><br>
+                    </div>
+                </div>
+                <div class="row2">
+                    <h3>Experiência</h3>
+                    <h4>It support analyst</h4>
+                    <span>Softtek</span>
+                    <span>Analista de Suporte</span>
+    
+                    <ul class="sobre-lista">
+                        <li class="sobre-item">Como Analista de Suporte, tenho experiência em atendimento a campo, onde atuo na documentação e regularização de ativos da empresa. Também sou responsável por fechar chamados técnicos, monitorar ambientes e serviços de TI para tratamento de incidentes, chamados e atualizações de BACKLOG, além de controlar o tempo de SLA.</li>
+                        <li class="sobre-item">Suporte em video conferências (Polycom).Field Service N2 - Projeto Hypera Pharma. Equipe de N2 para suporte e manutenção de equipamentos. Gerenciar fila de chamados via ferramenta ServiceNow.</li>
+                    </ul>
+    
+                </div>
+            </div>
+            <div class="col2">
+                <h3>Cursos</h3>
+                <div class="accordion">
+                    <div class="accordion-item active">
+                        <button class="accordion-header start">
+                            <span> Desenvolvedor ASP.NET</span>
+                            <i class="bi bi-caret-down-fill"></i>
+                        </button>
+                        <div class="Accordion-body">
+                            <p>Desenvolvedor.io</p>
+                            <p>.....</p>
+                            <p>Carga horária: 160 horas</p><br>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item active">
+                        <button class="accordion-header start">
+                            <span> Desenvolvedor Front-End</span>
+                            <i class="bi bi-caret-down-fill"></i>
+                        </button>
+                        <div class="Accordion-body">
+                            <p>Senai Vila Leopoldina - Mariano Ferraz</p>
+                            <p>O curso de Qualificação Profissional de Desenvolvedor Front-End tem por objetivo o desenvolvimento de competências que possibilitem ao concluinte programar sistemas utilizando as principais tecnologias do front-end, disponibilizando visualmente ao usuário uma forma amigável de acesso ao sistema, utilizando tecnologias como HTML, CSS e JavaScript e considerando as normas, padrões e requisitos técnicos, de qualidade, saúde e segurança e de sustentabilidade.</p>
+                            <p>Carga horária: 160 horas</p><br>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header end">
+                            <span>Microsoft Power Platform Fundamentals - PL-900</span>
+                            <i class="bi bi-caret-down-fill"></i>
+                        </button>
+                        <div class="Accordion-body end">
+                            <p>Senai Osasco - Nadir Dias de Figueiredo</p>
+    
+                            <p>O curso de Aperfeiçoamento Profissional de Fundamentos Power Platform - Microsoft PL-900 tem por objetivo o desenvolvimento de competências relativas à utilização e aplicação dos serviços: Power BI, Power Automate, Power Apps e Power Virtual Agents, por meio dos conteúdos formativos da Microsoft.</p>
+                            <p>Carga horária: 40 horas</p>
                         </div>
                     </div>
                 </div>
-                <div class="lojaInfo--addButton">Adicionar ao carrinho</div>
-                <div class="lojaInfo--cancelButton">Cancelar</div>
             </div>
+    
         </div>
-    </div>
-    <!-- /janela modal .lojaWindowArea -->
-
-    <script src="js/loja.js"></script>
+    </section>
+    <section id="contato" class="contato">
+    
+        <h2> Contato </h2>
+        <p> Estou disponível para orientações e novas conexões. 
+            Contate-me via e-mail e conecte-se comigo através das minhas redes sociais.
+        </p>
+    
+        <ul class="menu menu-social">
+    
+            <li> 
+                <a class="menu-link" href="https://github.com/Jeferson-Oliveiraa" target="_blank">
+                    <i class="menu-icon bi bi-github"> </i>
+                    <span> GitHub </span>
+                </a>
+            </li>
+    
+            <li> 
+                <a class="menu-link" href="https://www.linkedin.com/in/jeferson-oliveiraa" target="_blank">
+                    <i class="menu-icon bi bi-linkedin"> </i>
+                    <span> Linkedin </span>
+                </a>
+            </li>
+    
+            <li> 
+                <a class="menu-link" 
+                href="https://www.instagram.com/Jeferson.naressi" target="_blank">
+                    <i class="menu-icon bi bi-instagram"> </i>
+                    <span> Instagram </span>
+                </a>
+            </li>
+        </ul>
+    
+        <a href="jeferson143@hotmail.com" >
+            <button class="btn btn-primary">
+                <span class="email">jeferson143@hotmail.com</span>
+            </button>
+        </a>
+    </section> <!-- fim contato -->
+    <footer>
+        <p>
+            &copy; 2024. Portfolio desenvolvido para fins educativos com base nas aulas no <a href="#" target="_blank">  Senai Leopolidna - SP </a>.
+            desenvolvido por <a href="#" target="_blank"> jeferson Naressi</a>
+        </p>
+    </footer>    
     <script src="js/script.js"></script>
 </body>
 </html>
